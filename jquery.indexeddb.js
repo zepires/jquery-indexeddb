@@ -425,7 +425,7 @@
 				},
 				"transaction": function(storeNames, mode){
 					!$.isArray(storeNames) && (storeNames = [storeNames]);
-					mode = mode || IDBTransaction.READ_WRITE;
+					mode = (mode != 0) ? "readwrite" : "readonly";
 					return $.Deferred(function(dfd){
 						dbPromise.then(function(db, e){
 							try {
